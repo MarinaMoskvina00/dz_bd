@@ -1,0 +1,61 @@
+задачу 1 отправляла скрином.
+задача 2.
+UPDATE `student_bd`.`student` SET `name` = 'oblomov', `author` = 'I.D.Goncharov', `year_of_publication` = '2024', `genre` = 'novela' WHERE (`id` = '1');
+UPDATE `student_bd`.`student` SET `name` = 'master_and_Margarita', `author` = 'M.A.Bulgakov', `year_of_publication` = '2024', `genre` = 'novela' WHERE (`id` = '2');
+UPDATE `student_bd`.`student` SET `name` = 'fathers_and_children', `author` = 'I.C.Turgenev', `year_of_publication` = '2024', `genre` = 'novela' WHERE (`id` = '3');
+UPDATE `student_bd`.`student` SET `name` = 'sunday', `author` = 'L.N.Tolstoi', `year_of_publication` = '2024', `genre` = 'novela' WHERE (`id` = '4');
+UPDATE `student_bd`.`student` SET `name` = 'seven_Ghosts', `author` = 'Kriss_Pristli', `year_of_publication` = '2023', `genre` = 'children_adventures' WHERE (`id` = '5');
+
+задача 3.
+SELECT * FROM student_bd.student;INSERT INTO `student_bd`.`student` (`id`, `name`, `author`, `year_of_publication`, `genre`) VALUES ('1', 'Повелитель_мух', 'Уильям_Голдинг', '1954', 'Роман');
+
+задача4 - 5.
+UPDATE `student_bd`.`products` SET `product_name` = 'ноутбук', `price` = '52000' WHERE (`product_id` = '1');
+INSERT INTO `student_bd`.`products` (`product_id`, `product_name`, `price`) VALUES ('2', 'телефон', '70000');
+INSERT INTO `student_bd`.`products` (`product_id`, `product_name`, `price`) VALUES ('3', 'холодильник', '55000');
+INSERT INTO `student_bd`.`products` (`product_id`, `product_name`, `price`) VALUES ('4', 'наушники', '990');
+INSERT INTO `student_bd`.`products` (`product_id`, `product_name`, `price`) VALUES ('5', 'утюг', '500');
+INSERT INTO `student_bd`.`products` (`product_id`, `product_name`, `price`) VALUES ('6', 'флэшкарта', '230');
+UPDATE products SET price = price * 1.1 WHERE price < 1000;
+UPDATE `student_bd`.`products` SET `price` = '1089' WHERE (`product_id` = '4');
+UPDATE `student_bd`.`products` SET `price` = '550' WHERE (`product_id` = '5');
+UPDATE `student_bd`.`products` SET `price` = '550' WHERE (`product_id` = '5');
+
+SELECT MAX(column_price)
+FROM table_name;
+
+задание6
+INSERT INTO `student_bd`.`employees` (`employee_id`, `employee_name`, `department_id`) VALUES ('1', 'Рита_Милютина', '1');
+INSERT INTO `student_bd`.`employees` (`employee_id`, `employee_name`, `department_id`) VALUES ('2', 'Яна_Криванкова', '2');
+INSERT INTO `student_bd`.`employees` (`employee_id`, `employee_name`, `department_id`) VALUES ('3', 'Марина_Белозер', '3');
+INSERT INTO `student_bd`.`employees` (`employee_id`, `employee_name`, `department_id`) VALUES ('4', 'Фарид_Бикшанов', '1');
+UPDATE `student_bd`.`employees` SET `employee_name` = 'Денис_Пряхин' WHERE (`employee_id` = '5') and (`department_id` = '2');
+INSERT INTO `student_bd`.`employees` (`employee_id`, `employee_name`, `department_id`) VALUES ('6', 'Сергей_Бортвин', '3');
+
+DELETE FROM `student_bd`.`employees` WHERE (`employee_id` = '3') and (`department_id` = '3');
+DELETE FROM `student_bd`.`employees` WHERE (`employee_id` = '6') and (`department_id` = '3');
+
+задание7.
+ALTER TABLE students
+ADD CONSTRAINT fk_course_id 
+FOREIGN KEY (course_id) 
+REFERENCES courses(course_id) 
+ON DELETE CASCADE;
+
+задание 8.
+SELECT department_name, COUNT(employee_id) AS employee_count
+FROM departments
+LEFT JOIN employees ON departments.department_id = employees.department_id
+GROUP BY department_name;
+
+задание9.
+SELECT students.student_name, groups.group_name
+FROM students 
+INNER JOIN groups ON students.group_id = groups.group_id;
+
+задача10.
+
+SELECT books.book_title, authors.author_name
+FROM books
+INNER JOIN authors ON books.author_id = authors.author_id
+
